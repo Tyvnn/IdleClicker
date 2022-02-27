@@ -1,0 +1,24 @@
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/aws/4.2.0/windows_amd64/terraform-provider-aws_v4.2.0_x5.exe
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/aws/4.2.0/linux_amd64/terraform-provider-aws_v4.2.0_x5
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/null/3.1.0/linux_amd64/terraform-provider-null_v3.1.0_x5
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/random/3.1.0/linux_amd64/terraform-provider-random_v3.1.0_x5
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/null/3.1.0/windows_amd64/terraform-provider-null_v3.1.0_x5.exe
+Terraform-Ansible/.terraform/providers/registry.terraform.io/hashicorp/random/3.1.0/windows_amd64/terraform-provider-random_v3.1.0_x5.exe
+TEXT
+# .gitignore
+
+# misc
+*.pem
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ansible
+*.retry

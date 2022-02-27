@@ -1,0 +1,24 @@
+---
+- name: Install Jenkins
+  hosts: localhost
+  become: yes
+
+  tasks:
+  - name: Get apt key for jenkins
+    apt_key:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+      state: present
+  - name: add jenkins repo
+    apt_repository:
+      repo: deb https://pkg.jenkins.io/debian-stable binary/
+      state: present
+      filename: jenkins      
+  - name: update apt cache amd install
+    apt:
+      name: jenkins
+      update_cache: yes
+  - name: ensure jenkins is started and enabled
+    systemd:
+      name: jenkins
+      enabled: yes
+      state: started  
