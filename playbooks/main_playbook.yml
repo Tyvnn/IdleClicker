@@ -93,10 +93,37 @@
       apt: 
         name: nginx
         state: latest
+    - name: Create IdleGame directories
+      file: 
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: prometheus
+        group: prometheus
+        mode: '0755'
+      loop:
+        - /var/www/IdleGameWeb
+        - /var/www/IdleGameWeb/Build
+        - /var/www/IdleGameWeb/TemplateData
+        - /var/www/IdleGameWeb/StreamingAssets
+        - /var/www/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles
+     
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /usr/local/bin
+        remote_src: yes
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - ~//index.html
+              
+
     - name: start nginx
       systemd:
         name: nginx
         enabled: yes
-        state: started
+        state: started        
 
         
