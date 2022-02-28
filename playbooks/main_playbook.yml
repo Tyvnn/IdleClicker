@@ -112,7 +112,6 @@
       copy:
         src: "{{ item }}"
         dest: /var/www/IdleGameWeb
-        remote_src: yes
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -122,7 +121,6 @@
       copy:
         src: "{{ item }}"
         dest: /var/www/IdleGameWeb/Build
-        remote_src: yes
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -135,7 +133,6 @@
       copy:
         src: "{{ item }}"
         dest: /var/www/IdleGameWeb/TemplateData
-        remote_src: yes
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -154,7 +151,6 @@
       copy:
         src: "{{ item }}"
         dest: /var/www/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles
-        remote_src: yes
         mode: '0755'
         owner: prometheus
         group: prometheus
