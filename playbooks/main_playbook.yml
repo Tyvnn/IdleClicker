@@ -160,6 +160,15 @@
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /etc/nginx
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - /home/ubuntu/environment/IdleClicker/nginx.conf
 
     - name: start nginx
       systemd:
