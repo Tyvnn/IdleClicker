@@ -102,16 +102,15 @@
         group: prometheus
         mode: '0755'
       loop:
-        - /var/www/IdleGameWeb
-        - /var/www/IdleGameWeb/Build
-        - /var/www/IdleGameWeb/TemplateData
-        - /var/www/IdleGameWeb/StreamingAssets
-        - /var/www/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles
+        - /var/www/html/Build
+        - /var/www/html/TemplateData
+        - /var/www/html/StreamingAssets
+        - /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
      
     - name: copy files to direct
       copy:
         src: "{{ item }}"
-        dest: /var/www/IdleGameWeb
+        dest: /var/www/html
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -120,7 +119,7 @@
     - name: copy files to direct
       copy:
         src: "{{ item }}"
-        dest: /var/www/IdleGameWeb/Build
+        dest: /var/www/html/Build
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -132,7 +131,7 @@
     - name: copy files to direct
       copy:
         src: "{{ item }}"
-        dest: /var/www/IdleGameWeb/TemplateData
+        dest: /var/www/html/TemplateData
         mode: '0755'
         owner: prometheus
         group: prometheus
@@ -150,7 +149,7 @@
     - name: copy files to direct
       copy:
         src: "{{ item }}"
-        dest: /var/www/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles
+        dest: /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
         mode: '0755'
         owner: prometheus
         group: prometheus
