@@ -11,7 +11,7 @@ variable "access_ip" {
 }
 variable "cloud9_ip" {
   type = string
-  default = "44.199.105.117/32"
+  default = "107.21.176.213/32"
 }
 //Compute Vars
 
