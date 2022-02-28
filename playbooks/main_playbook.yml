@@ -111,14 +111,60 @@
     - name: copy files to direct
       copy:
         src: "{{ item }}"
-        dest: /usr/local/bin
+        dest: /var/www/IdleGameWeb
         remote_src: yes
         mode: '0755'
         owner: prometheus
         group: prometheus
       loop:
-        - ~//index.html
-              
+        - ~/IdleClicker/IdleGameWeb/index.html
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /var/www/IdleGameWeb/Build
+        remote_src: yes
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.data.br  
+        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.framework.js.br  
+        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.loader.js  
+        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.wasm.br       
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /var/www/IdleGameWeb/TemplateData
+        remote_src: yes
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - ~/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
+        - ~/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-light.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-dark.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-light.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/style.css
+        - ~/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
+        - ~/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /var/www/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles
+        remote_src: yes
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
+        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
 
     - name: start nginx
       systemd:
