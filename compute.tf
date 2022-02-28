@@ -42,12 +42,12 @@ resource "aws_instance" "mssaproj_ubuntu" {
 
   }
 }
-resource "null_resource" "grafana_install" {
-  depends_on = [aws_instance.mssaproj_ubuntu]
-  provisioner "local-exec" {
-    command = "ansible-playbook -i aws_hosts --key-file mssaprojkey playbooks/main_playbook.yml"
-  }
-}
+# resource "null_resource" "grafana_install" {
+#   depends_on = [aws_instance.mssaproj_ubuntu]
+#   provisioner "local-exec" {
+#     command = "ansible-playbook -i aws_hosts --key-file mssaprojkey playbooks/main_playbook.yml"
+#   }
+# }
 
 resource "aws_key_pair" "deploy" {
   key_name   = var.key_name
