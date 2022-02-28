@@ -117,7 +117,7 @@
         owner: prometheus
         group: prometheus
       loop:
-        - ~/IdleClicker/IdleGameWeb/index.html
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/index.html
     - name: copy files to direct
       copy:
         src: "{{ item }}"
@@ -127,10 +127,10 @@
         owner: prometheus
         group: prometheus
       loop:
-        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.data.br  
-        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.framework.js.br  
-        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.loader.js  
-        - ~/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.wasm.br       
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.data.br  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.framework.js.br  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.loader.js  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.wasm.br       
     - name: copy files to direct
       copy:
         src: "{{ item }}"
@@ -140,16 +140,16 @@
         owner: prometheus
         group: prometheus
       loop:
-        - ~/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
-        - ~/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-light.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-dark.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-light.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/style.css
-        - ~/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
-        - ~/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-light.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-dark.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-light.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/style.css
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
     - name: copy files to direct
       copy:
         src: "{{ item }}"
@@ -159,12 +159,12 @@
         owner: prometheus
         group: prometheus
       loop:
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
-        - ~/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
 
     - name: start nginx
       systemd:
