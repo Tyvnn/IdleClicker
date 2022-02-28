@@ -89,4 +89,14 @@
         name: prometheus
         enabled: yes
         state: started
+    - name: install nginx
+      apt: 
+        name: nginx
+        state: latest
+    - name: start nginx
+      systemd:
+        name: nginx
+        enabled: yes
+        state: started
+
         
