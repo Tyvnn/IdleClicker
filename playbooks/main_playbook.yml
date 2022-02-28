@@ -124,10 +124,10 @@
         owner: prometheus
         group: prometheus
       loop:
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.data.br  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.framework.js.br  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.data.gz  
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.framework.js.gz  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.loader.js  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.wasm.br       
+        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWebBuild.wasm.gz       
     - name: copy files to direct
       copy:
         src: "{{ item }}"
