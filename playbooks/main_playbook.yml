@@ -42,13 +42,8 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-<<<<<<< HEAD
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/index.html
     - name: Copy IdleGame files to build directory
-=======
-        - ./IdleGameWeb/index.html
-    - name: copy files to direct
->>>>>>> 7d3705063d486975808e66a1c77313bbd869d47b
       copy:
         src: "{{ item }}"
         dest: /var/www/html/Build
@@ -56,19 +51,11 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-<<<<<<< HEAD
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.data  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.framework.js  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.loader.js  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.wasm       
     - name: Copy IdleGame files to TemplateData Directory
-=======
-        - ./IdleGameWeb/Build/IdleGameWeb.data  
-        - ./IdleGameWeb/Build/IdleGameWeb.framework.js  
-        - ./IdleGameWeb/Build/IdleGameWeb.loader.js  
-        - ./IdleGameWeb/Build/IdleGameWeb.wasm       
-    - name: copy files to direct
->>>>>>> 7d3705063d486975808e66a1c77313bbd869d47b
       copy:
         src: "{{ item }}"
         dest: /var/www/html/TemplateData
@@ -76,7 +63,6 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-<<<<<<< HEAD
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
@@ -88,19 +74,6 @@
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
     - name: Copy IdleGame files to animation folder
-=======
-        - ./IdleGameWeb/TemplateData/favicon.ico  
-        - ./IdleGameWeb/TemplateData/fullscreen-button.png
-        - ./IdleGameWeb/TemplateData/progress-bar-empty-dark.png
-        - ./IdleGameWeb/TemplateData/progress-bar-empty-light.png
-        - ./IdleGameWeb/TemplateData/progress-bar-full-dark.png
-        - ./IdleGameWeb/TemplateData/progress-bar-full-light.png
-        - ./IdleGameWeb/TemplateData/style.css
-        - ./IdleGameWeb/TemplateData/unity-logo-dark.png
-        - ./IdleGameWeb/TemplateData/unity-logo-light.png
-        - ./IdleGameWeb/TemplateData/webgl-logo.png
-    - name: copy files to direct
->>>>>>> 7d3705063d486975808e66a1c77313bbd869d47b
       copy:
         src: "{{ item }}"
         dest: /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
@@ -108,7 +81,6 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-<<<<<<< HEAD
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
@@ -116,15 +88,6 @@
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
     - name: copy nginx.conf file to its new home
-=======
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
-        - ./IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
-    - name: copy files to direct
->>>>>>> 7d3705063d486975808e66a1c77313bbd869d47b
       copy:
         src: "{{ item }}"
         dest: /etc/nginx
