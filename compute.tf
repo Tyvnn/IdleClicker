@@ -31,10 +31,11 @@ resource "aws_instance" "mssaproj_ubuntu" {
   provisioner "local-exec" {###this is for ansible inventory file, and mkaes su wait till its fully up before we try and SSH
     command     = "printf '\n${self.public_ip}' >> aws_hosts && aws ec2 wait instance-status-ok --instance-ids ${self.id}"
   }
-  provisioner "local-exec" {#removes entry from aws_hosts when they get deleted
-    when        = destroy
-    command     = "sed -i '/^[0-9]/d' aws_hosts"
-  }
+#jenkins wont let this be deleted un comment after demo  
+#   provisioner "local-exec" {#removes entry from aws_hosts when they get deleted
+#     when        = destroy
+#     command     = "sed -i '/^[0-9]/d' aws_hosts"
+#   }
 }
 ###Keys to the City
 resource "aws_key_pair" "deploy" {

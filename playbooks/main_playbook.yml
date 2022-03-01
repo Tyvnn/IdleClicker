@@ -95,7 +95,7 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-        - ./nginx.conf
+        - /home/ubuntu/environment/IdleClicker/nginx.conf
 
     - name: start/bounce nginx service to refresh with new page
       systemd:
