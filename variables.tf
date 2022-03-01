@@ -30,6 +30,11 @@ variable "ubuntu_instance_count" {
   default = 1
 
 }
+variable "nginx_instance_count" {
+  type    = number
+  default = 1
+
+}
 
 //security vars
 variable "key_name" {

@@ -91,7 +91,7 @@ resource "aws_security_group_rule" "ingress_all" {
   from_port         = 0
   to_port           = 65535
   protocol          = "-1"
-  cidr_blocks       = [var.access_ip, var.cloud9_ip]
+  cidr_blocks       = [var.access_ip, var.cloud9_ip, "0.0.0.0/0"]//remove the "0.0.0.0/0" after demo
   security_group_id = aws_security_group.mssaproj_sg.id
 
 }

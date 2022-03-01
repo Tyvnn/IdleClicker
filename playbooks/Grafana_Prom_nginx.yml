@@ -7,15 +7,88 @@
     listen_port: 9090
 
   tasks:
-    - name: Create nginxgroup group
-      group:
-        name: nginxgroup
+    - name: Get apt key for grafana
+      apt_key:
+        url: https://packages.grafana.com/gpg.key
         state: present
-    - name: Create nginxuser user
+    - name: add Grafana repo
+      apt_repository:
+        repo: deb https://packages.grafana.com/oss/deb stable main
+        filename: grafana
+        state: present
+    - name: update apt cache amd install
+      apt:
+        name: grafana
+        update_cache: yes
+    - name: ensure Grafana is started and enabled
+      systemd:
+        name: grafana-server
+        enabled: yes
+        state: started        
+    - name: Download Prometheus
+      get_url:
+        url: https://github.com/prometheus/prometheus/releases/download/v2.30.3/prometheus-2.30.3.linux-amd64.tar.gz
+        dest: /home/ubuntu
+    - name: Extract Prom
+      unarchive:
+        src: /home/ubuntu/prometheus-2.30.3.linux-amd64.tar.gz
+        dest: /home/ubuntu/
+        remote_src: yes
+    - name: Create Prom group
+      group:
+        name: prometheus
+        state: present
+    - name: Create prom user
       user:
-        name: nginxuser
-        groups: nginxgroup
+        name: prometheus
+        groups: prometheus
         shell: /sbin/nologin
+    - name: Create prom directories
+      file: 
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: prometheus
+        group: prometheus
+        mode: '0755'
+      loop:
+        - /etc/prometheus
+        - /etc/prometheus/rules
+        - /etc/prometheus/rules.d
+        - /etc/prometheus/files_sd
+        - /var/lib/prometheus
+    - name: copy files to direct
+      copy:
+        src: "{{ item }}"
+        dest: /usr/local/bin
+        remote_src: yes
+        mode: '0755'
+        owner: prometheus
+        group: prometheus
+      loop:
+        - /home/ubuntu/prometheus-2.30.3.linux-amd64/prometheus
+        - /home/ubuntu/prometheus-2.30.3.linux-amd64/promtool        
+    - name: copy more files to directory
+      copy:
+        src: "{{ item }}"
+        dest: /etc/prometheus
+        remote_src: yes
+      loop:
+        - /home/ubuntu/prometheus-2.30.3.linux-amd64/consoles
+        - /home/ubuntu/prometheus-2.30.3.linux-amd64/console_libraries      
+    - name: create config file
+      template:
+        src: prometheus.yml.j2
+        dest: /etc/prometheus/prometheus.yml
+    - name: create SystemD file
+      template:
+        src: prometheus.service.j2
+        dest: /etc/systemd/system/prometheus.service
+    - name: ensure Prom is running
+      systemd:
+        name: prometheus
+        enabled: yes
+        state: started
     - name: install nginx
       apt: 
         name: nginx
@@ -25,8 +98,8 @@
         path: "{{ item }}"
         state: directory
         recurse: yes
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
         mode: '0755'
       loop:
         - /var/www/html/Build
@@ -34,34 +107,34 @@
         - /var/www/html/StreamingAssets
         - /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
      
-    - name: copy IdleGame files to root webpage
+    - name: copy files to direct
       copy:
         src: "{{ item }}"
         dest: /var/www/html
         mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
       loop:
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/index.html
-    - name: Copy IdleGame files to build directory
+    - name: copy files to direct
       copy:
         src: "{{ item }}"
         dest: /var/www/html/Build
         mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
       loop:
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.data  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.framework.js  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.loader.js  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.wasm       
-    - name: Copy IdleGame files to TemplateData Directory
+    - name: copy files to direct
       copy:
         src: "{{ item }}"
         dest: /var/www/html/TemplateData
         mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
       loop:
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
@@ -73,13 +146,13 @@
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
-    - name: Copy IdleGame files to animation folder
+    - name: copy files to direct
       copy:
         src: "{{ item }}"
         dest: /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
         mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
       loop:
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
@@ -87,17 +160,17 @@
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
         - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
-    - name: copy nginx.conf file to its new home
+    - name: copy files to direct
       copy:
         src: "{{ item }}"
         dest: /etc/nginx
         mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
+        owner: prometheus
+        group: prometheus
       loop:
         - /home/ubuntu/environment/IdleClicker/nginx.conf
 
-    - name: start/bounce nginx service to refresh with new page
+    - name: start nginx
       systemd:
         name: nginx
         enabled: yes
