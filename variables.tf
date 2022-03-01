@@ -27,12 +27,12 @@ variable "ubuntu_vol_size" {
 
 variable "ubuntu_instance_count" {
   type    = number
-  default = 3
+  default = 1
 
 }
 variable "nginx_instance_count" {
   type    = number
-  default = 1
+  default = 3
 
 }
 
