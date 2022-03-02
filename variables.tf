@@ -6,7 +6,7 @@ variable "vpc_cidr" {
 
 variable "access_ip" {
   type    = string
-  default = "104.185.37.127/32"
+  default = "0.0.0.0/0"
 
 }
 variable "cloud9_ip" {
@@ -32,7 +32,7 @@ variable "ubuntu_instance_count" {
 }
 variable "nginx_instance_count" {
   type    = number
-  default = 3
+  default = 1
 
 }
 
