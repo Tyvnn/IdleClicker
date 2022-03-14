@@ -20,21 +20,21 @@
       apt: 
         name: nginx
         state: latest
-    - name: Create IdleGame directories
-      file: 
-        path: "{{ item }}"
-        state: directory
-        recurse: yes
-        owner: nginxuser
-        group: nginxgroup
-        mode: '0755'
-      loop:
-        - /var/www/html/Build
-        - /var/www/html/TemplateData
-        - /var/www/html/StreamingAssets
-        - /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
+    # - name: Create IdleGame directories
+    #   file: 
+    #     path: "{{ item }}"
+    #     state: directory
+    #     recurse: yes
+    #     owner: nginxuser
+    #     group: nginxgroup
+    #     mode: '0755'
+    #   loop:
+    #     - /var/www/html/Build
+    #     - /var/www/html/TemplateData
+    #     - /var/www/html/StreamingAssets
+    #     - /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
      
-    - name: copy IdleGame files to root webpage
+    - name: copy aboutme files to root webpage
       copy:
         src: "{{ item }}"
         dest: /var/www/html
@@ -42,51 +42,51 @@
         owner: nginxuser
         group: nginxgroup
       loop:
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/index.html
-    - name: Copy IdleGame files to build directory
-      copy:
-        src: "{{ item }}"
-        dest: /var/www/html/Build
-        mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
-      loop:
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.data  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.framework.js  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.loader.js  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.wasm       
-    - name: Copy IdleGame files to TemplateData Directory
-      copy:
-        src: "{{ item }}"
-        dest: /var/www/html/TemplateData
-        mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
-      loop:
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-light.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-dark.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-light.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/style.css
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
-    - name: Copy IdleGame files to animation folder
-      copy:
-        src: "{{ item }}"
-        dest: /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
-        mode: '0755'
-        owner: nginxuser
-        group: nginxgroup
-      loop:
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
-        - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
+        - /home/ubuntu/environment/IdleClicker/aboutme/index.html
+    # - name: Copy IdleGame files to build directory
+    #   copy:
+    #     src: "{{ item }}"
+    #     dest: /var/www/html/Build
+    #     mode: '0755'
+    #     owner: nginxuser
+    #     group: nginxgroup
+    #   loop:
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.data  
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.framework.js  
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.loader.js  
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/Build/IdleGameWeb.wasm       
+    # - name: Copy IdleGame files to TemplateData Directory
+    #   copy:
+    #     src: "{{ item }}"
+    #     dest: /var/www/html/TemplateData
+    #     mode: '0755'
+    #     owner: nginxuser
+    #     group: nginxgroup
+    #   loop:
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/favicon.ico  
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/fullscreen-button.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-dark.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-empty-light.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-dark.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/progress-bar-full-light.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/style.css
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-dark.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/unity-logo-light.png
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/TemplateData/webgl-logo.png
+    # - name: Copy IdleGame files to animation folder
+    #   copy:
+    #     src: "{{ item }}"
+    #     dest: /var/www/html/StreamingAssets/2DAnimationSampleAssetBundles
+    #     mode: '0755'
+    #     owner: nginxuser
+    #     group: nginxgroup
+    #   loop:
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrpoison.manifest
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage
+    #     - /home/ubuntu/environment/IdleClicker/IdleGameWeb/StreamingAssets/2DAnimationSampleAssetBundles/rikrrage.manifest        
     - name: copy nginx.conf file to its new home
       copy:
         src: "{{ item }}"
