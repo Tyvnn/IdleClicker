@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="fonts/Avenir/font.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <title>Javascript Playground</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" 
+            content="width=device-width, initial-scale=1"> 
+    </head>
+    <body>
+        <!-- Raider background image -->
+        <div id="bg"><img src="images/raiders.png" alt=""></div>
+        <!-- The Meat and potatoes -->
+        <div class="content">
+            <h1>Ryan's Javascript Page!</h1>
+            <div class="nameapp container"> 
+                <form> 
+                    <h2>Name Popup</h2>
+                    <div class="container">                     
+                        <div class="text"> 
+                            <h4>Your Name:</h4> 
+                            <input id="name"
+                                class="text" 
+                                type="text" 
+                                placeholder="Input Your Name Here"> 
+                            <br><br>
+                            <button id="btn-namealert"
+                                    class="btn Blue" 
+                                    type="submit"> 
+                                    Submit  
+                            </button> 
+                        </div>
+                    </div> 
+                </form> 
+            </div>
+            <div class="mathapp container">
+                <form>
+                    <h2>Math</h2>
+                    <div class="container">
+                        <label id="calculationTotal"
+                            class="mathsolution label">
+                            <span>Input 2 integers, then click a button to get the results</span>
+                        </label>
+                        <br><br><br>
+                        <div class="text"> 
+                            <label for="">First Integer:</label> 
+                            <input id="intNum1"
+                                class="numericinput" 
+                                type="number" 
+                                placeholder="#############">
+                        </div>
+                        <br>                    
+                        <div class="text"> 
+                            <label for="">Second Integer:</label> 
+                            <input id="intNum2"
+                                class="numericinput" 
+                                type="number" 
+                                placeholder="#############">
+                        </div>                                   
+                        <div class="text">
+                            <br>
+                            <button id="addbutton"
+                                class="btn Blue" 
+                                type="button">                 
+                                Add  
+                            </button>
+                            <button id="subtractbutton"
+                                class="btn Red" 
+                                type="button"> 
+                                Subtract  
+                            </button>
+                            <button id="multiplybutton"
+                                class="btn Green" 
+                                type="button"> 
+                                Multiply  
+                            </button>
+                            <button id="dividebutton"
+                                class="btn Orange" 
+                                type="button"> 
+                                Divide  
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="hobby container">
+                <form>
+                    <h2>Hobby List</h2>
+                    <div class="hobby container">
+                        <h4>Add A New Hobby:</h4>
+                        <div class="container">
+                            <ul id="myList">
+
+                            </ul>
+                        </div>
+                        <input id="hobbyinputbox"
+                            type="text" 
+                            placeholder="Input New Hobby Here"> 
+                        <br><br>
+                        <button id="hobbybutton"
+                            class="btn Blue" 
+                            type="button"> 
+                            Add Hobby 
+                        </button>              
+                    </div>            
+                </form>
+            </div>
+        </div>
+        <!-- Load Scripts -->                
+        <script src="myscript.js"></script>
+    </body>
+</html>

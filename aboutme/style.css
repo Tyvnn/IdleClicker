@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url('fonts/Avenir/Avenir-Roman.eot');
+    src: url('fonts/Avenir/Avenir-Roman.woff2') format('woff2'),
+         url('fonts/Avenir/Avenir-Roman.woff') format('woff'),
+         url('fonts/Avenir/Avenir-Roman.ttf') format('truetype'),
+         url('fonts/Avenir/Avenir-Roman.svg#Avenir-Roman') format('svg'),
+         url('fonts/Avenir/Avenir-Roman.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;   
+}
+
+#bg {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+#bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    max-height: 75%;
+    opacity: 0.8;
+    background-color: rgb(150, 150, 150);
+}
+
+body{
+    font-family: 'Avenir-Roman', Helvetica, sans-serif;   
+}
+
+.content{
+    position: relative;  
+}
+
+h1, h2, h3, h4{
+    color: rgb(175, 175, 175);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;      
+    margin: 5px;
+}
+
+h1  {
+    font-size: 300%; 
+    text-align: center;
+}
+
+h2  {
+    font-size: 180%;
+    text-align: center;
+}
+
+h3  {
+    font-size: 130%;
+    text-decoration: underline;   
+}
+
+h4  {
+    font-size: 110%;
+}
+.container{
+    font-size: 100%;
+    border: 5px solid rgb(50, 50, 50);
+    padding: 25px;
+    margin: 25px;
+    background-color: rgb(200, 200, 200, 0.7);   
+}
+.box{
+    border: 2px solid rgb(50, 50, 50);
+    padding: 5px;
+    margin: 10px;             
+    background-color: rgb(225, 225, 225, 0.9);
+    opacity: 0.7;
+}
+.text{
+    color: rgb(50, 50, 50);
+    font-size: 100%;
+}
+.label{
+    color:  5px solid rgb(50, 50, 50);   
+}
+
+.nameapp{
+    text-align: center;
+}
+.mathapp{
+    text-align: left;
+}
+.hobbyapp{
+    text-align: left;
+}
+
+.numericinput{
+    font-size: 80%;
+    max-width: 100px;
+    text-align: right;   
+}
+.mathsolution{
+    font-size: 150%;
+    border: 5px solid rgb(46, 46, 46);
+    padding: 5px;
+    margin: 0%;
+    text-align: center;
+}
+/* Buttons */
+.btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+/* Background Colors! */
+.Blue {
+    background-color: #4c6faf; /*blue*/
+}
+.Red {
+    background-color: #af4c4c; /*red*/
+}
+.Green {
+    background-color: #54af4c; /*green*/
+}
+.Orange {
+    background-color: #af744c; /*Orange*/
+}
